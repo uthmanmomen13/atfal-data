@@ -35,6 +35,8 @@ export default function StatsOverview({ data }) {
       ))
     
     return (
+
+        <Col lg={7} style={{ minHeight: "200px", position: "relative", left: "40%"}}>
         <table className="table table-hover">
           <thead>
             <tr>
@@ -46,12 +48,12 @@ export default function StatsOverview({ data }) {
               <th>Q4 points</th>
               <th>Total points</th>
               <th>Majlis Size</th>
-
             </tr>
           </thead>
           <tbody>
             {allRows}
           </tbody>
         </table>
+        </Col>
       );
 }
