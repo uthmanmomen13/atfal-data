@@ -2,8 +2,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -15,12 +13,20 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.mainContent {
+  margin-top: 108px;
+}
+h1 {
+  font-family: "Noto Serif";
+  font-size: 72px;
+
+  text-transform: uppercase;
+}
+h2 {
+  font-family: "Noto Serif";
+  font-size: 36px;
+}
+.text-italic {
+  font-style: italic;
+  font-family: serif;
 }

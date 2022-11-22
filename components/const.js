@@ -1,0 +1,9 @@
+export const TYPE_INDEX = 0,
+  NAME_INDEX = 1,
+  REGION_NAME = 2,
+  Q1_TOTAL = 3,
+  Q2_TOTAL = 4,
+  Q3_TOTAL = 5,
+  Q4_TOTAL = 6,
+  ALL_Q_TOTAL = 7,
+  MAJLIS_SIZE = 8;

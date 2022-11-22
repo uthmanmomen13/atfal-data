@@ -1,0 +1,40 @@
+.infoContainerTitle {
+  font-family: "Noto Serif";
+  font-size: 36px;
+}
+
+.infoContainerLabel {
+  font-family: "Lato";
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: underline #f6bc56 2px;
+}
+
+.infoContainerTextItalic {
+  font-size: 28px;
+  font-style: italic;
+  font-family: serif;
+}
+
+.infoContainerTextRegular {
+  font-size: 28px;
+  font-family: serif;
+}
+
+@media only screen and (max-width: 1200px) {
+  .infoContainerTextItalic {
+    font-size: 20px;
+  }
+  .infoContainerTextRegular {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .infoContainerTextItalic {
+    font-size: 28px;
+  }
+  .infoContainerTextRegular {
+    font-size: 28px;
+  }
+}
