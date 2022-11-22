@@ -21,30 +21,36 @@ export default function StatsOverview({ data }) {
     console.log(data);
     let majlisList = data["majalis"];
     console.log(majlisList[0].name)
+    let allRows = majlisList.map((entry, i) => 
+        ( <tr key={`${entry.region}_${entry.name}_Row`}>
+          <td>{entry.rank}</td>
+          <td>{entry.name}</td>
+          <td className="text-left">{entry.q1}</td>
+          <td className="text-left">{entry.q2}</td>
+          <td className="text-left">{entry.q3}</td>
+          <td className="text-left">{entry.q4}</td>
+          <td className="text-left">{entry.all}</td>
+          <td className="text-left">{entry.majlisSize}</td>
+        </tr>
+      ))
     
     return (
         <table className="table table-hover">
           <thead>
             <tr>
+              <th>Rank</th>
               <th>Majlis</th>
               <th>Q1 points</th>
               <th>Q2 points</th>
               <th>Q3 points</th>
               <th>Q4 points</th>
               <th>Total points</th>
+              <th>Majlis Size</th>
+
             </tr>
           </thead>
           <tbody>
-            {majlisList.map((entry, i) => (
-              <tr key={`${entry[REGION_NAME]}_${entry[NAME_INDEX]}_Row`}>
-                <td>{entry.name}</td>
-                <td className="text-left">{entry.q1}</td>
-                <td className="text-left">{entry.q2}</td>
-                <td className="text-left">{entry.q3}</td>
-                <td className="text-left">{entry.q4}</td>
-                <td className="text-left">{entry.all}</td>
-              </tr>
-            ))}
+            {allRows}
           </tbody>
         </table>
       );

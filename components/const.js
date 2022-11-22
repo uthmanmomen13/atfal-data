@@ -6,4 +6,5 @@ export const TYPE_INDEX = 0,
   Q3_TOTAL = 5,
   Q4_TOTAL = 6,
   ALL_Q_TOTAL = 7,
-  MAJLIS_SIZE = 8;
+  MAJLIS_SIZE = 8,
+  RANK_INDEX = 9;

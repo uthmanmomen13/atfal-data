@@ -15,6 +15,7 @@ import {
     Q4_TOTAL,
     ALL_Q_TOTAL,
     MAJLIS_SIZE,
+    RANK_INDEX,
 } from "../components/const.js";
 
 import RankHero from "../components/RankHero.js";
@@ -99,7 +100,8 @@ function handleFormData(response) {
           q3: row[Q3_TOTAL],
           q4: row[Q4_TOTAL],
           all: row[ALL_Q_TOTAL],
-          majlisSize: [MAJLIS_SIZE]
+          majlisSize: row[MAJLIS_SIZE],
+          rank: row[RANK_INDEX]
         });
         break;
       case "Region":
@@ -111,7 +113,9 @@ function handleFormData(response) {
           q3: row[Q3_TOTAL],
           q4: row[Q4_TOTAL],
           all: row[ALL_Q_TOTAL],
-          majlisSize: [MAJLIS_SIZE]
+          majlisSize: row[MAJLIS_SIZE],
+          rank: row[RANK_INDEX]
+
         });
         break;
       default:
