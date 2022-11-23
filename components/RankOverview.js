@@ -23,12 +23,15 @@ export default function StatsOverview({ data }) {
                 break;
         }
     });
-    console.log(large)
+    large.sort(function(a,b) {return b.all - a.all})
+    medium.sort(function(a,b) {return b.all - a.all})
+    small.sort(function(a,b) {return b.all - a.all})
 
     function getRows(data_) {
         let allRows = data_.map((entry, i) => 
-        ( 
-        <tr key={`${entry.region}_${entry.name}_Row`}>
+        {
+            return ( 
+        <tr key={`${entry.region}_${entry.name}_Row`} style={{ backgroundColor: i == 0? "gold": i == 1? "silver" : i == 2? "#CD7F32" : "white"}}>
           <td>{entry.rank}</td>
           <td>{entry.name}</td>
           <td className="text-left">{entry.q1}</td>
@@ -36,22 +39,18 @@ export default function StatsOverview({ data }) {
           <td className="text-left">{entry.q3}</td>
           <td className="text-left">{entry.q4}</td>
           <td className="text-left">{entry.all}</td>
-          <td className="text-left">{entry.majlisSize}</td>
         </tr> 
-      ))
+      )})
     return (
         <>
             <thead>
                 <tr>
-                    <br/>
-                    <br/>
-
+                    <br/><br/>
                 </tr>
                 <tr>
-                    <th colSpan="8" className="text-center">
+                    <th colSpan="7" className="text-center">
                         <span className={styles.majalisTitle}>
                         {data_[0].majlisSize} Majalis
-
                         </span>
                     </th>
                 </tr>
@@ -63,7 +62,6 @@ export default function StatsOverview({ data }) {
                 <th>Q3 points</th>
                 <th>Q4 points</th>
                 <th>Total points</th>
-                <th>Majlis Size</th>
                 </tr>
           </thead>
           <tbody>
