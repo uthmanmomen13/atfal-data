@@ -8,8 +8,11 @@
 .regionNumbers {
   color: #f6bc56;
 }
-.regionalTitle {
+.majalisTitle {
   font-size: 48px;
-  text-decoration: underline #f6bc56 4px;
+  text-decoration: underline #6DC19B 4px;
+  -webkit-text-decoration-line: underline #6DC19B 4px;
+  text-decoration-line: underline ;
+  text-decoration-color: #6DC19B ;
   padding-bottom: 4px;
 }

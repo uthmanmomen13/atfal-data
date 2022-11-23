@@ -5,24 +5,30 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import {
-    TYPE_INDEX,
-    NAME_INDEX,
-    REGION_NAME,
-    Q1_TOTAL,
-    Q2_TOTAL,
-    Q3_TOTAL,
-    Q4_TOTAL,
-    ALL_Q_TOTAL,
-    MAJLIS_SIZE,
-} from "../components/const.js";
-
 export default function StatsOverview({ data }) {
-    console.log(data);
     let majlisList = data["majalis"];
-    console.log(majlisList[0].name)
-    let allRows = majlisList.map((entry, i) => 
-        ( <tr key={`${entry.region}_${entry.name}_Row`}>
+    let large = []
+    let medium = []
+    let small = []
+    majlisList.forEach(element => {
+        switch(element.majlisSize) {
+            case "Large":
+                large.push(element);
+                break;
+            case "Medium":
+                medium.push(element);
+                break;
+            case "Small":
+                small.push(element);
+                break;
+        }
+    });
+    console.log(large)
+
+    function getRows(data_) {
+        let allRows = data_.map((entry, i) => 
+        ( 
+        <tr key={`${entry.region}_${entry.name}_Row`}>
           <td>{entry.rank}</td>
           <td>{entry.name}</td>
           <td className="text-left">{entry.q1}</td>
@@ -31,28 +37,49 @@ export default function StatsOverview({ data }) {
           <td className="text-left">{entry.q4}</td>
           <td className="text-left">{entry.all}</td>
           <td className="text-left">{entry.majlisSize}</td>
-        </tr>
+        </tr> 
       ))
-    
     return (
+        <>
+            <thead>
+                <tr>
+                    <br/>
+                    <br/>
 
-        <Col lg={7} style={{ minHeight: "200px", position: "relative", left: "40%"}}>
-        <table className="table table-hover">
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Majlis</th>
-              <th>Q1 points</th>
-              <th>Q2 points</th>
-              <th>Q3 points</th>
-              <th>Q4 points</th>
-              <th>Total points</th>
-              <th>Majlis Size</th>
-            </tr>
+                </tr>
+                <tr>
+                    <th colSpan="8" className="text-center">
+                        <span className={styles.majalisTitle}>
+                        {data_[0].majlisSize} Majalis
+
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                <th>Rank</th>
+                <th>Majlis</th>
+                <th>Q1 points</th>
+                <th>Q2 points</th>
+                <th>Q3 points</th>
+                <th>Q4 points</th>
+                <th>Total points</th>
+                <th>Majlis Size</th>
+                </tr>
           </thead>
           <tbody>
             {allRows}
           </tbody>
+          </>
+          )
+    }
+    
+    return (
+        <Col lg={6} style={{ width: "auto", paddingLeft: "50px", paddingRight: "50px" }}>
+        <table className="table table-hover">
+          {getRows(large)}
+          {getRows(medium)}
+          {getRows(small)}
+
         </table>
         </Col>
       );
