@@ -8,14 +8,15 @@ import Col from "react-bootstrap/Col";
 import {
     TYPE_INDEX,
     NAME_INDEX,
-    REGION_NAME,
-    Q1_TOTAL,
-    Q2_TOTAL,
-    Q3_TOTAL,
-    Q4_TOTAL,
-    ALL_Q_TOTAL,
-    MAJLIS_SIZE,
+    REGION_INDEX,
+    Q1_INDEX,
+    Q2_INDEX,
+    Q3_INDEX,
+    Q4_INDEX,
+    TOTAL_INDEX,
+    MAJLIS_SIZE_INDEX,
     RANK_INDEX,
+    MAAL_INDEX
 } from "../components/const.js";
 
 import RankHero from "../components/RankHero.js";
@@ -94,28 +95,15 @@ function handleFormData(response) {
       case "Majlis":
         rtnObject.majalis.push({
           name: row[NAME_INDEX],
-          region: row[REGION_NAME],
-          q1: row[Q1_TOTAL],
-          q2: row[Q2_TOTAL],
-          q3: row[Q3_TOTAL],
-          q4: row[Q4_TOTAL],
-          all: row[ALL_Q_TOTAL],
-          majlisSize: row[MAJLIS_SIZE],
+          region: row[REGION_INDEX],
+          q1: row[Q1_INDEX],
+          q2: row[Q2_INDEX],
+          q3: row[Q3_INDEX],
+          q4: row[Q4_INDEX],
+          maal: row[MAAL_INDEX],
+          all: row[TOTAL_INDEX],
+          majlisSize: row[MAJLIS_SIZE_INDEX],
           rank: row[RANK_INDEX]
-        });
-        break;
-      case "Region":
-        rtnObject.regions.push({
-          name: row[NAME_INDEX],
-          region: row[REGION_NAME],
-          q1: row[Q1_TOTAL],
-          q2: row[Q2_TOTAL],
-          q3: row[Q3_TOTAL],
-          q4: row[Q4_TOTAL],
-          all: row[ALL_Q_TOTAL],
-          majlisSize: row[MAJLIS_SIZE],
-          rank: row[RANK_INDEX]
-
         });
         break;
       default:

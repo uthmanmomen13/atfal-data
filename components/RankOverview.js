@@ -38,6 +38,7 @@ export default function StatsOverview({ data }) {
           <td className="text-left">{entry.q2}</td>
           <td className="text-left">{entry.q3}</td>
           <td className="text-left">{entry.q4}</td>
+          <td className="text-left">{entry.maal}</td>
           <td className="text-left">{entry.all}</td>
         </tr> 
       )})
@@ -48,7 +49,7 @@ export default function StatsOverview({ data }) {
                     <br/><br/>
                 </tr>
                 <tr>
-                    <th colSpan="7" className="text-center">
+                    <th colSpan="8" className="text-center">
                         <span className={styles.majalisTitle}>
                         {data_[0].majlisSize} Majalis
                         </span>
@@ -61,6 +62,7 @@ export default function StatsOverview({ data }) {
                 <th>Q2 points</th>
                 <th>Q3 points</th>
                 <th>Q4 points</th>
+                <th>Maal points</th>
                 <th>Total points</th>
                 </tr>
           </thead>

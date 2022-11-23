@@ -15,9 +15,16 @@ export default function Navigation() {
         </Navbar.Brand>
         
         <Nav>        
-        <Nav.Link href="/ranks">Rankings</Nav.Link>            
+        <Nav.Link href="/ranks">Rankings</Nav.Link>    
+          <NavDropdown title="Report Data">
+            <NavDropdown.Item href="/22-23reports">
+            [2022-23 Report Data]
+            </NavDropdown.Item>
+            <NavDropdown.Item href="/21-22reports">
+            [2021-22 Report Data]
+            </NavDropdown.Item>
+          </NavDropdown>                 
         </Nav>
-        
       </Container>
     </Navbar>
   );
