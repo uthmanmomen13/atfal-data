@@ -4,3 +4,12 @@
   text-decoration-line: underline ;
   text-decoration-color: #6DC19B ;
 }
+
+.a {
+    color: white;
+    text-decoration:none;   
+}
+
+.a:hover {
+    color: #f6bc56;
+}

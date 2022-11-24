@@ -8,7 +8,6 @@ import styles from "../styles/RegionalTable.module.css"
 import Link from "next/link.js";
 
 export default function RegionalTable({data}) {
-    // console.log(data)
     let regionsTable = Object.keys(data).map((region) => {
     return (
         <Col md={3} className="my-3" key={region}>
@@ -19,9 +18,10 @@ export default function RegionalTable({data}) {
         {data[region].map((majlis) => 
             {
                 let link = "/21-22reports/" + majlis.replace(" ", "_")
-                console.log(link)
-            return (<h5>
-            <Link href={link}>{majlis}</Link> 
+            return (<h5 >
+                <a className={styles.a} href={link}>
+                {majlis}
+                </a> 
             </h5>)
             }
             )}
