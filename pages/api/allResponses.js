@@ -1,0 +1,31 @@
+export default async function handler(req, res) {
+    //googleapis
+    const { google } = require("googleapis");
+  
+    const auth = new google.auth.GoogleAuth({
+      keyFile: "key.json", //the key file
+      //url to spreadsheets API
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"]
+    });
+  
+    //Auth client Object
+    const authClientObject = await auth.getClient();
+  
+    //Google sheets instance
+    const googleSheetsInstance = google.sheets({
+      version: "v4",
+      auth: authClientObject,
+    });
+  
+    // spreadsheet id
+    const spreadsheetId = "1uuoWvvSg42FKukytNcdeH4quE2T1zscGp6w4sSYlDz8";
+  
+    //Read front the spreadsheet
+    const readData = await googleSheetsInstance.spreadsheets.values.get({
+      auth, //auth object
+      spreadsheetId, // spreadsheet id
+      range: "Form Responses 1!A:AD", //range of cells to read from.
+    });
+    res.status(200).json(readData.data.values);
+  }
+  

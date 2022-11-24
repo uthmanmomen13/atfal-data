@@ -4,6 +4,7 @@ import Nav from "../components/Nav.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import sheet from "./almeData.json"
 
 import {
     TYPE_INDEX,
@@ -19,7 +20,7 @@ import {
     MAAL_INDEX
 } from "../components/const.js";
 
-import RankHero from "../components/RankHero.js";
+import Hero from "../components/Hero.js";
 import RankOverview from "../components/RankOverview.js";
 
 
@@ -36,12 +37,15 @@ export default function Stats() {
     };
     const url = "/api/sheet";
 
-    fetch(url, requestOptions)
-      .then((response) => response.json())
-      .then((response) => {
-        updateFormData(handleFormData(response));
-        updateLoaded(true);
-      });
+    // fetch(url, requestOptions)
+    //   .then((response) => response.json())
+    //   .then((response) => {
+    //     updateFormData(handleFormData(response));
+    //     updateLoaded(true);
+    //   });
+    updateFormData(handleFormData(sheet.sheetData));
+    updateLoaded(true);
+
   }, []);
 
   if (isLoaded) {
@@ -50,12 +54,12 @@ export default function Stats() {
         <Header
           data={{
             title: "Alm-e-Inami Rankings",
-            description: "Atfal Alm-e-Inami Rankings 2022-23",
+            description: "Atfal Alm-e-Inami Rankings 2021-22",
           }}
         />
         <Nav />
         <main className="mainContent">
-          <RankHero />
+          <Hero text={"2021 - 22 Alm-e-Inami Rankings"}/>
           <RankOverview data={formData}/>
         </main>
         <Footer />
@@ -67,12 +71,13 @@ export default function Stats() {
         <Header
           data={{
             title: "Alm-e-Inami",
-            description: "Atfal Alm-e-Inami Rankings 2022-23",
+            description: "Atfal Alm-e-Inami Rankings 2021-22",
           }}
         />
         <Nav />
         <main className="mainContent">
-          <RankHero />
+        <Hero text={"2021 - 22 Alm-e-Inami Rankings"}/>
+          
           <section className="bg-dark py-5">
             <Container>
                 <Row className="justify-content-end text-white">
@@ -112,19 +117,4 @@ function handleFormData(response) {
   return rtnObject;
 }
 
-function getTopMajalis(formData) {
-  return formData.majalis
-    .map((majlis) => {
-      return [
-        majlis.name,
-        (parseInt(majlis.all.replace(",", "")) /
-          parseInt(majlis.allTarget.replace(",", ""))) *
-          100,
-        majlis.atfalCount,
-        majlis.khuddamCount,
-      ];
-    })
-    .sort((a, b) => {
-      return b[1] - a[1];
-    });
-}
+

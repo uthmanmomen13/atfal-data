@@ -1,4 +1,5 @@
-export const TYPE_INDEX = 0,
+export const 
+  TYPE_INDEX = 0,
   NAME_INDEX = 1,
   REGION_INDEX = 2,
   Q1_INDEX = 3,
