@@ -17,13 +17,13 @@ export default function RegionalTable({data}) {
           
         {data[region].map((majlis) => 
             {
-                let link = "/21-22reports/" + majlis.replace(" ", "_")
+            let link = "/21-22reports/" + majlis.replace(" ", "_")
             return (<h5 >
                 <a className={styles.a} href={link}>
                 {majlis}
                 </a> 
-            </h5>)
-            }
+            </h5>
+            )}
             )}
         </Col>
       );

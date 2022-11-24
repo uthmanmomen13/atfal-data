@@ -4,7 +4,7 @@ import Nav from "../components/Nav.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import regionJson from "./21-22regions.json"
+import regionJson from "../components/21-22regions.json"
 import Hero from "../components/Hero.js";
 import Footer from "../components/Footer.js";
 import RegionalTable from "../components/RegionalTable.js";
