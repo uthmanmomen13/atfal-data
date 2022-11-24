@@ -6,7 +6,7 @@ import Hero from "../../components/Hero";
 import Footer from "../../components/Footer.js";
 import { Container, Row, Col } from "react-bootstrap";
 import MajlisReports from "../../components/MajlisReports";
-const MAJLIS_INDEX = 4;
+const MAJLIS_INDEX = 3;
 import allResponses from "../allResponses.json"
 
 
@@ -35,11 +35,7 @@ export default function Majlis() {
               updateLoaded(true);
             });
 
-        updateMajlisData(allResponses.sheetData, majlis);
-        updateLoaded(true);
-
-        updateHeaderData(allResponses.sheetData[0]);
-    }, [])
+    }, [isLoaded])
     
 
     if (isLoaded) {
@@ -88,7 +84,7 @@ export default function Majlis() {
 }
 
 function handleMajlisData(response, majlis) {
-    let majlisList = [1]
+    let majlisList = []
     response.map((entry) => {
         if (entry[MAJLIS_INDEX] == majlis) {
             majlisList.push(entry);

@@ -37,16 +37,15 @@ export default function Stats() {
     };
     const url = "/api/sheet";
 
-    // fetch(url, requestOptions)
-    //   .then((response) => response.json())
-    //   .then((response) => {
-    //     updateFormData(handleFormData(response));
-    //     updateLoaded(true);
-    //   });
-    updateFormData(handleFormData(sheet.sheetData));
-    updateLoaded(true);
+    fetch(url, requestOptions)
+      .then((response) => response.json())
+      .then((response) => {
+        updateFormData(handleFormData(response)); // This finishes quickly because response is not very big
+        updateLoaded(true);
+      });
+    
 
-  }, []);
+  }, [isLoaded]);
 
   if (isLoaded) {
     return (
