@@ -54,7 +54,7 @@ export default function MajlisReports({majlisList}) {
                 <th >Majlis</th>
                 <th >Jamaat role</th>
                 <th >Held amila meeting</th>
-                <th style={{width:"10%"}}>Meeting minutes</th>
+                <th >Meeting minutes</th>
                 <th >Parents contacted</th>
                 <th >Atfal classes held</th>
                 <th >Average attendance</th>
