@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { SSRProvider } from "react-bootstrap";
-
+import { Analytics } from '@vercel/analytics/react';
 
 
 function MyApp({ Component, pageProps }) {
@@ -11,9 +11,12 @@ function MyApp({ Component, pageProps }) {
   }, []);
   
   return (
+    <>
     <SSRProvider>
     <Component {...pageProps} />
     </SSRProvider>
+    <Analytics />
+    </>
   )
 }
 
