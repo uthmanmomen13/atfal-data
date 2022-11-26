@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         // keyFile: "key.json", 
         //url to spreadsheets API
         scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-        credentials: process.env.GOOGLE_CREDENTIALS
+        credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS)
       });
     } else {
       auth = new google.auth.GoogleAuth({
