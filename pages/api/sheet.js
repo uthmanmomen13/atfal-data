@@ -1,4 +1,7 @@
 export default async function handler(req, res) {
+    // caching response for 1 week
+    res.setHeader('Cache-Control', 'max-age=0', 's-maxage=604800')
+    
     //googleapis
     const { google } = require("googleapis");
   

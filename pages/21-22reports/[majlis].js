@@ -20,7 +20,7 @@ export default function Majlis() {
     
     useEffect(() => {
         const requestOptions = {
-            method: "POST",
+            method: "GET",
             headers: { "Content-Type": "application/json" },
           };
           const url = "/api/allResponses";

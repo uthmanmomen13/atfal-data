@@ -31,7 +31,7 @@ export default function Stats() {
 
   useEffect(() => {
     const requestOptions = {
-      method: "POST",
+      method: "GET",
       headers: { "Content-Type": "application/json" },
     };
     const url = "/api/sheet";
