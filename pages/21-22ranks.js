@@ -4,7 +4,6 @@ import Nav from "../components/Nav.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import sheet from "./almeData.json"
 
 import {
     TYPE_INDEX,

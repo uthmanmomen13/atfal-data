@@ -7,8 +7,6 @@ import Footer from "../../components/Footer.js";
 import { Container, Row, Col } from "react-bootstrap";
 import MajlisReports from "../../components/MajlisReports";
 const MAJLIS_INDEX = 3;
-import allResponses from "../allResponses.json"
-
 
 export default function Majlis() {
     const [majlisData, updateMajlisData] = useState([]);
