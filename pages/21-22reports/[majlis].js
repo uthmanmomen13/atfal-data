@@ -17,7 +17,26 @@ export default function Majlis() {
     if (majlis) {
         majlis = majlis.replace("_", " ");
     }
-    
+    const header = ["Timestamp",
+    "Month",
+    "Name",
+    "Majlis",
+    "Jamaat role",
+    "Held amila meeting",
+    "Meeting minutes",
+    "Parents contacted",
+    "Atfal classes held",
+    "Average attendance",
+    "Atfal who read book pages",
+    "Khidmat-e-Khalq activities held",
+    "Waqar-e-Amal activities held",
+    "Atfal participants in Waqar-e-Amal",
+    "Held a sports event",
+    "Atfal participants in sports",
+    "Atfal encouraged to write for Al-Bashir",
+    "Reminded parents to subscribe to Atfal Digest",
+    "Waqf-e-Nau who attended class"]
+
     useEffect(() => {
         const requestOptions = {
             method: "GET",
@@ -48,7 +67,7 @@ export default function Majlis() {
           <Nav />
           <main className="mainContent">
             <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
-            <MajlisReports majlisList={majlisData} headerData={headerData} majlis={majlis}/>
+            <MajlisReports majlisList={majlisData} headerList={header}/>
           </main>
           <Footer />
         </>
