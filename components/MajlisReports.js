@@ -67,7 +67,6 @@ export default function MajlisReports({majlisList}) {
                 <th >Atfal encouraged to write for Al-Bashir</th>
                 <th >Reminded parents to subscribe to Atfal Digest</th>
                 <th >Waqf-e-Nau who attended class</th>
-
                 </tr>
           </thead>
           <tbody>
