@@ -8,67 +8,31 @@ import styles from "../styles/Table.module.css"
 const MAJLIS_INDEX = 4;
 
 
-export default function MajlisReports({majlisList}) {
+export default function MajlisReports({majlisList, headerList}) {
   sortByMonth(majlisList)
     let list = getRows(majlisList)
 
     function getRows(data_) {
         let allRows = data_.map((entry, i) => 
         {
+          let items = entry.map((entryData, i) => {
+            return (<td key={i}> {entryData}</td>)
+          })
             return ( 
-        <tr key={`${entry[0]}_Row`} className={styles.tr} >
-          <td >{entry[0]}</td>
-          <td >{entry[1]}</td>
-          <td >{entry[2]}</td>
-          <td >{entry[3]}</td>
-          <td >{entry[4]}</td>
-          <td >{entry[5]}</td>
-          <td >{entry[6]}</td>
-          <td >{entry[7]}</td>
-          <td >{entry[8]}</td>
-          <td >{entry[9]}</td>
-          <td >{entry[10]}</td>
-          <td >{entry[11]}</td>
-          <td >{entry[12]}</td>
-          <td >{entry[13]}</td>
-          <td >{entry[14]}</td>
-          <td >{entry[15]}</td>
-          <td >{entry[16]}</td>
-          <td >{entry[17]}</td>
-          <td >{entry[18]}</td>
-          <td >{entry[19]}</td>
+        <tr key={`${entry[0]}_Row${entry[1]}`} className={styles.tr} >
+          {items}
           
         </tr> 
       )})
+    let headerItems = headerList.map((item, i) => {
+      return (<th> {item} </th>)
+    })
     return (
         <>
-            <thead >
-                <tr>
-                    <br/><br/>
-                </tr>
-                
-                <tr className={styles.tr} >
-                <th >Timestamp</th>
-                <th >Month</th>
-                <th >Name</th>
-                <th >Majlis</th>
-                <th >Jamaat role</th>
-                <th >Held amila meeting</th>
-                <th >Meeting minutes</th>
-                <th >Parents contacted</th>
-                <th >Atfal classes held</th>
-                <th >Average attendance</th>
-                <th >Atfal who read book pages</th>
-                <th >Khidmat-e-Khalq activities held</th>
-                <th >Waqar-e-Amal activities held</th>
-                <th >Atfal participants in Waqar-e-Amal</th>
-                <th >Held a sports event</th>
-                <th >Atfal participants in sports</th>
-                <th >Atfal encouraged to write for Al-Bashir</th>
-                <th >Reminded parents to subscribe to Atfal Digest</th>
-                <th >Waqf-e-Nau who attended class</th>
-
-                </tr>
+          <thead >
+            <tr className={styles.tr} >
+              {headerItems}
+            </tr>
           </thead>
           <tbody>
             {allRows}
@@ -78,8 +42,8 @@ export default function MajlisReports({majlisList}) {
     }
 
     return (
-        <Col style={{ paddingLeft: "50px", paddingRight: "50px" }}>
-        <table style={{width: "150%"}}>
+        <Col style={{ paddingLeft: "20px", paddingRight: "20px" }}>
+        <table style={{width: "120%", marginTop: "30px"}}>
           {list}
         </table>
         

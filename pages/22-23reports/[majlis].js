@@ -17,6 +17,7 @@ export default function Majlis() {
     if (majlis) {
         majlis = majlis.replace("_", " ");
     }
+
     const header = ["Timestamp",
     "Month",
     "Name",
@@ -34,7 +35,8 @@ export default function Majlis() {
     "Held a sports event",
     "Atfal participants in sports",
     "Atfal encouraged to write for Al-Bashir",
-    "Reminded parents to subscribe to Atfal Digest",
+    "Checked if Parents/Atfal are getting Digest",
+    "Created content for Atfal social media",
     "Waqf-e-Nau who attended class"]
 
     useEffect(() => {
@@ -42,7 +44,7 @@ export default function Majlis() {
             method: "GET",
             headers: { "Content-Type": "application/json" },
           };
-          const url = "/api/allResponses";
+          const url = "/api/responses22-23";
       
           fetch(url, requestOptions)
             .then((response) => response.json())
@@ -61,12 +63,12 @@ export default function Majlis() {
           <Header
             data={{
               title: majlis + " Report Data",
-              description: "2021 - 22 Monthly Report Data",
+              description: "2022 - 23 Monthly Report Data",
             }}
           />
           <Nav />
           <main className="mainContent">
-            <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
+            <Hero text={majlis + " 2022 - 23 Monthly Report Data"}/>
             <MajlisReports majlisList={majlisData} headerList={header}/>
           </main>
           <Footer />
@@ -79,12 +81,12 @@ export default function Majlis() {
               <Header
                 data={{
                   title: majlis + " Report Data",
-                  description: "2021 - 22 Monthly Report Data",
+                  description: "2022 - 23 Monthly Report Data",
                 }}
               />
               <Nav />
               <main className="mainContent">
-                <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
+                <Hero text={majlis + " 2022 - 23 Monthly Report Data"}/>
                 <section className="bg-dark py-5">
                 <Container>
                     <Row className="justify-content-end text-white">

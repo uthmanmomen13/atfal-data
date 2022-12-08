@@ -1,0 +1,72 @@
+{
+    "regions": 
+    {
+        "Northeast": ["Albany",
+            "Binghamton",
+            "Boston",
+            "Buffalo",
+            "Connecticut",
+            "Fitchburg",
+            "Rochester",
+            "Syracuse"
+        ],
+        "New York Metro": ["Bronx",
+            "Brooklyn",
+            "Long Island",
+            "Queens"
+        ],
+        "East": ["Central Jersey",
+            "Harrisburg",
+            "North Jersey",
+            "Philadelphia",
+            "Willingboro",
+            "Baltimore"
+        ],
+        "Virginia": ["North Virginia",
+            "South Virginia",
+            "RTP",
+            "Richmond",
+            "Central Virginia"
+        ],
+        "Southeast": ["Atlanta",
+            "Charlotte",
+            "Miami",
+            "Orlando",
+            "Tennessee"
+        ],
+        "Gulf": ["Austin",
+            "Dallas",
+            "Fort worth",
+            "Houston",
+            "Tulsa"
+        ],
+        "Midwest": ["Chicago",
+            "Indiana",
+            "Milwaukee",
+            "Minnesota",
+            "Oshkosh",
+            "Zion",
+            "Saint Louis",
+            "Kansas City"
+        ],
+        "Great Lakes": ["Cleveland",
+            "Columbus",
+            "Dayton",
+            "Detroit",
+            "Pittsburgh",
+            "Kentucky"
+        ],
+        "Northwest": ["Bay Point",
+            "Portland",
+            "Sacramento",
+            "Seattle",
+            "Silicon Valley"
+        ],
+        "Southwest": ["Las Vegas",
+            "Los Angeles",
+            "Phoenix",
+            "Tucson"
+        ],
+        "Muqami": ["Muqami"]
+    }
+}

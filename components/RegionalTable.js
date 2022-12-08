@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import styles from "../styles/RegionalTable.module.css"
 import Link from "next/link.js";
 
-export default function RegionalTable({data}) {
+export default function RegionalTable({data, route}) {
     let regionsTable = Object.keys(data).map((region) => {
     return (
         <Col md={3} className="my-3" key={region}>
@@ -17,7 +17,7 @@ export default function RegionalTable({data}) {
           
         {data[region].map((majlis) => 
             {
-            let link = "/21-22reports/" + majlis.replace(" ", "_")
+            let link = route + majlis.replace(" ", "_")
             return (<h5 >
                 <a className={styles.a} href={link}>
                 {majlis}
