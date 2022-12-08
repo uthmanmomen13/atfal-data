@@ -23,14 +23,14 @@ export default function Navigation() {
             [2021-22 Report Data]
             </NavDropdown.Item>
           </NavDropdown>  
-          <NavDropdown title="Rankings">
+          {/* <NavDropdown title="Rankings">
             <NavDropdown.Item href="/">
             [2022-23 Rankings]
             </NavDropdown.Item>
             <NavDropdown.Item href="/21-22ranks">
             [2021-22 rankings]
             </NavDropdown.Item>
-          </NavDropdown>                
+          </NavDropdown>                 */}
         </Nav>
       </Container>
     </Navbar>
