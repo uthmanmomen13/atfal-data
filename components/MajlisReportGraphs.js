@@ -31,7 +31,7 @@ export default function MajlisReportGraphs({majlisList, headerList, indices}) {
     <section className="my-4" >
       <Container>
           <Col lg={6} style={{ minHeight: "200px" }}>
-            <BarGraph data={graphData} title={headerList[index]} max={max}/>
+            <BarGraph data={graphData} title={headerList[index]}/>
           </Col>
       </Container>
     </section>

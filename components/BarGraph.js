@@ -24,7 +24,7 @@ Chart.register(
 );
 
 
-export default function BarGraph({data, title, max}) {
+export default function BarGraph({data, title}) {
   const options = {
     responsive: true,
     plugins: {
@@ -50,7 +50,6 @@ export default function BarGraph({data, title, max}) {
             weight: "400"
           },
         }, 
-        max: max,
       },
       x: {
         ticks: {

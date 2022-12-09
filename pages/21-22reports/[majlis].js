@@ -24,7 +24,6 @@ export default function Majlis() {
     "Majlis",
     "Jamaat role",
     "Held amila meeting",
-    "Meeting minutes",
     "Parents contacted",
     "Atfal classes held",
     "Average attendance",
@@ -111,7 +110,7 @@ function handleMajlisData(response, majlis) {
     })
     MONTHS.map((month) => {
       if (!monthsSubmitted.has(month)) {
-        let missingMonth = new Array(19);
+        let missingMonth = new Array(18);
         missingMonth.fill("");
         missingMonth[0] = "Report not submitted"
         missingMonth[1] = month;
