@@ -10,3 +10,6 @@ export const
   TOTAL_INDEX = 9,
   MAJLIS_SIZE_INDEX = 10,
   RANK_INDEX = 11;
+
+export const MONTHS = ["November", "December", "January", "February", "March", "April", "May", "June",
+"July", "August", "September", "October"];

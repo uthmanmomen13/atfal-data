@@ -6,11 +6,12 @@ import Hero from "../../components/Hero";
 import Footer from "../../components/Footer.js";
 import { Container, Row, Col } from "react-bootstrap";
 import MajlisReports from "../../components/MajlisReports";
+import MajlisReportGraphs from "../../components/MajlisReportGraphs";
 const MAJLIS_INDEX = 3;
+import { MONTHS } from "../../components/const";
 
 export default function Majlis() {
     const [majlisData, updateMajlisData] = useState([]);
-    const [headerData, updateHeaderData] = useState([]);
     const [isLoaded, updateLoaded] = useState(false);
     const router = useRouter()
     let { majlis } = router.query
@@ -47,14 +48,12 @@ export default function Majlis() {
           fetch(url, requestOptions)
             .then((response) => response.json())
             .then((response) => {
-              updateMajlisData(handleMajlisData(response, majlis));
-              updateHeaderData(response[0])
+              updateMajlisData(handleMajlisData(response, majlis)); // selects all data from this majlis
               updateLoaded(true);
             });
 
     }, [isLoaded])
     
-
     if (isLoaded) {
     return (
         <>
@@ -68,6 +67,7 @@ export default function Majlis() {
           <main className="mainContent">
             <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
             <MajlisReports majlisList={majlisData} headerList={header}/>
+            <MajlisReportGraphs majlisList={majlisData} indices={[7, 8, 9, 10, 11, 15]} headerList={header}/>
           </main>
           <Footer />
         </>
@@ -102,11 +102,32 @@ export default function Majlis() {
 
 function handleMajlisData(response, majlis) {
     let majlisList = []
+    let monthsSubmitted = new Set()
     response.map((entry) => {
         if (entry[MAJLIS_INDEX] == majlis) {
             majlisList.push(entry);
+            monthsSubmitted.add(entry[1])
         }
-    }
-    )
+    })
+    MONTHS.map((month) => {
+      if (!monthsSubmitted.has(month)) {
+        let missingMonth = new Array(19);
+        missingMonth.fill("");
+        missingMonth[0] = "Report not submitted"
+        missingMonth[1] = month;
+        majlisList.push(missingMonth)
+      }
+    })
+    sortByMonth(majlisList)
     return majlisList;
+}
+
+function sortByMonth(arr) {
+  
+  const months = ["November", "December", "January", "February", "March", "April", "May", "June",
+  	        "July", "August", "September", "October"];
+  arr.sort(function(a, b){
+      return months.indexOf(a[1])
+           - months.indexOf(b[1]);
+  });
 }

@@ -108,7 +108,6 @@ function handleMajlisData(response, majlis) {
         if (entry[MAJLIS_INDEX] == majlis) {
             majlisList.push(entry);
         }
-    }
-    )
+    })
     return majlisList;
 }
