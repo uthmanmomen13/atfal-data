@@ -8,7 +8,6 @@ import { Container, Row, Col } from "react-bootstrap";
 const MAJLIS_INDEX = 3;
 import { MONTHS } from "../../components/const";
 import MajlisPage from "../../components/MajlisPage";
-import DropdownOption from "../../components/DropdownOption";
 
 const header = ["Timestamp",
     "Month",

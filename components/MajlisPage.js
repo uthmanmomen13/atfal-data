@@ -10,16 +10,14 @@ export default function MajlisPage({majlisList, headerList, indices}) {
   const [majlisData, setMajlisData] = useState(majlisList);
 
   useEffect(() => {
-    console.log(filter)
     let filteredData = []
     majlisList.map((entry) => {
-      console.log(entry[MONTH_INDEX])
       if (filter == "" || entry[MONTH_INDEX] == filter) {
         filteredData.push(entry)
       }
     })
     setMajlisData(filteredData);
-  }, [filter])
+  }, [filter, majlisList])
   
   return (
       <>

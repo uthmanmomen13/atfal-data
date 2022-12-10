@@ -5,7 +5,6 @@ const MONTH_INDEX = 1;
 
 
 export default function MajlisReports({majlisList, headerList}) {
-  
     let list = getRows(majlisList)
 
     function getRows(data_) {
