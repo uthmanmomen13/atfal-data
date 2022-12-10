@@ -4,7 +4,6 @@ import BarGraph from "./BarGraph";
 import PieGraph from "./PieGraph";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import styles from "../styles/Table.module.css"
 
 
 export default function MajlisReportGraphs({majlisList, headerList, indices}) {

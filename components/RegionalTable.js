@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header.js";
-import Nav from "../components/Nav.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "../styles/RegionalTable.module.css"
-import Link from "next/link.js";
 
 export default function RegionalTable({data, route}) {
     let regionsTable = Object.keys(data).map((region) => {

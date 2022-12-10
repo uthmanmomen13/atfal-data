@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "../styles/Table.module.css"
+const MONTH_INDEX = 1;
 
 
 export default function MajlisReports({majlisList, headerList}) {
-  // sortByMonth(majlisList)
-
+  
     let list = getRows(majlisList)
 
     function getRows(data_) {
-        let allRows = data_.map((entry, i) => // each entry represents a monthly report
-        {
-          let items = entry.map((entryData, i) => { // each entryData represents a specific question
-            return (<td key={i}> {entryData}</td>)
+      let allRows = data_.map((entry, i) => { // each entry represents a monthly report
+        
+        let items = entry.map((entryData, i) => { // each entryData represents a specific question
+          return (<td key={i}> {entryData}</td>)
           })
-            return ( 
-        <tr key={`${entry[0]}_Row${entry[1]}`} className={styles.tr} >
-          {items}
-        </tr> 
-      )})
+          
+        return (  
+          // return row with all items
+          <tr key={`${entry[0]}_Row${entry[1]}`} className={styles.tr}>  
+            {items}
+          </tr> 
+        )}
+      
+      )
     let headerItems = headerList.map((item, i) => { // each item is the title of a question
       return (<th> {item} </th>)
     })
@@ -41,14 +43,5 @@ export default function MajlisReports({majlisList, headerList}) {
             {list}
           </table>
         </Col>
-    )}
-
-function sortByMonth(arr) {
-  
-  var months = ["November", "December", "January", "February", "March", "April", "May", "June",
-  	        "July", "August", "September", "October"];
-  arr.sort(function(a, b){
-      return months.indexOf(a[1])
-           - months.indexOf(b[1]);
-  });
+    )
 }

@@ -5,20 +5,12 @@ import Nav from "../../components/Nav.js";
 import Hero from "../../components/Hero";
 import Footer from "../../components/Footer.js";
 import { Container, Row, Col } from "react-bootstrap";
-import MajlisReports from "../../components/MajlisReports";
-import MajlisReportGraphs from "../../components/MajlisReportGraphs";
 const MAJLIS_INDEX = 3;
 import { MONTHS } from "../../components/const";
+import MajlisPage from "../../components/MajlisPage";
+import DropdownOption from "../../components/DropdownOption";
 
-export default function Majlis() {
-    const [majlisData, updateMajlisData] = useState([]);
-    const [isLoaded, updateLoaded] = useState(false);
-    const router = useRouter()
-    let { majlis } = router.query
-    if (majlis) {
-        majlis = majlis.replace("_", " ");
-    }
-    const header = ["Timestamp",
+const header = ["Timestamp",
     "Month",
     "Name",
     "Majlis",
@@ -37,20 +29,28 @@ export default function Majlis() {
     "Reminded parents to subscribe to Atfal Digest",
     "Waqf-e-Nau who attended class"]
 
+export default function Majlis() {
+    const [majlisData, updateMajlisData] = useState([]);
+    const [isLoaded, updateLoaded] = useState(false);
+    const router = useRouter()
+    let { majlis } = router.query
+    if (majlis) {
+        majlis = majlis.replace("_", " ");
+    }
+    
     useEffect(() => {
-        const requestOptions = {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-          };
-          const url = "/api/allResponses";
-      
-          fetch(url, requestOptions)
-            .then((response) => response.json())
-            .then((response) => {
-              updateMajlisData(handleMajlisData(response, majlis)); // selects all data from this majlis
-              updateLoaded(true);
-            });
-
+      const requestOptions = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        };
+        const url = "/api/allResponses";
+    
+        fetch(url, requestOptions)
+          .then((response) => response.json())
+          .then((response) => {
+            updateMajlisData(handleMajlisData(response, majlis)); // selects all data from this majlis
+            updateLoaded(true);
+          });
     }, [isLoaded])
     
     if (isLoaded) {
@@ -69,8 +69,7 @@ export default function Majlis() {
           <Nav />
           <main className="mainContent">
             <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
-            <MajlisReports majlisList={majlisData} headerList={header}/>
-            <MajlisReportGraphs majlisList={majlisData} indices={indices} headerList={header}/>
+            <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
           </main>
           <Footer />
         </>
@@ -100,7 +99,6 @@ export default function Majlis() {
             </>
           );
       }
-
 }
 
 function handleMajlisData(response, majlis) {
