@@ -54,6 +54,10 @@ export default function Majlis() {
     }, [isLoaded])
     
     if (isLoaded) {
+      let indices = {
+        barIndices: [7, 8, 9, 10, 11, 15],
+        pieIndices: [5, 13, 16]
+      }
     return (
         <>
           <Header
@@ -66,7 +70,7 @@ export default function Majlis() {
           <main className="mainContent">
             <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
             <MajlisReports majlisList={majlisData} headerList={header}/>
-            <MajlisReportGraphs majlisList={majlisData} indices={[7, 8, 9, 10, 11, 15]} headerList={header}/>
+            <MajlisReportGraphs majlisList={majlisData} indices={indices} headerList={header}/>
           </main>
           <Footer />
         </>

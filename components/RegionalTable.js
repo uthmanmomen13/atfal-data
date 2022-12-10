@@ -15,7 +15,7 @@ export default function RegionalTable({data, route}) {
             {region}{" "}
           </h3>
           
-        {data[region].map((majlis) => 
+            {data[region].map((majlis) => 
             {
             let link = route + majlis.replace(" ", "_")
             return (<h5 >
