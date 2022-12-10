@@ -1,23 +1,26 @@
-import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import BarGraph from "./BarGraph";
 import PieGraph from "./PieGraph";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { MONTHS } from "./const";
+const MONTH_INDEX = 1;
 
 
 export default function MajlisReportGraphs({majlisList, headerList, indices}) {
 
   function getDataForBarGraph(column) {
-    let dataForGraph = [];
+    let dataForGraph = Array(12).fill(0);
     majlisList.map((entry) => {
       let toPush = entry[column];
+      let month = entry[MONTH_INDEX];
+      let index = MONTHS.indexOf(month);
       if (toPush == "") {
         toPush = 0;
       } else {
         toPush = parseInt(toPush)
       }
-      dataForGraph.push(toPush);
+      dataForGraph[index] += toPush;
     })
     return dataForGraph;
   }
@@ -70,12 +73,9 @@ export default function MajlisReportGraphs({majlisList, headerList, indices}) {
       </Container>
       </section>
 
-  
-
   return (
       <>
       {allPieGraphs}
-
       {allBarGraphs}
       </>
   )}

@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 const MONTH_INDEX = 1;
 import MajlisReports from "./MajlisReports";
 import MajlisReportGraphs from "./MajlisReportGraphs";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import DropdownOption from "./DropdownOption";
-import { MONTHS } from './const';
-
-
 
 export default function MajlisPage({majlisList, headerList, indices}) {
 
@@ -28,9 +23,8 @@ export default function MajlisPage({majlisList, headerList, indices}) {
   
   return (
       <>
-      <div style={{paddingLeft: "20px"}}>
-        
-        <DropdownOption callback={setFilter}/>
+        <div style={{paddingLeft: "20px"}}>
+          <DropdownOption callback={setFilter}/>
         </div>
         <MajlisReports majlisList={majlisData} headerList={headerList}/>
         <MajlisReportGraphs majlisList={majlisData} indices={indices} headerList={headerList}/>
