@@ -6,8 +6,6 @@ import Hero from "../../components/Hero";
 import Footer from "../../components/Footer.js";
 import { Container, Row, Col } from "react-bootstrap";
 import MajlisReports from "../../components/MajlisReports";
-import { MONTHS } from "../../components/const";
-import MajlisReportGraphs from "../../components/MajlisReportGraphs";
 const MAJLIS_INDEX = 3;
 
 export default function Majlis() {
@@ -26,6 +24,7 @@ export default function Majlis() {
     "Majlis",
     "Jamaat role",
     "Held amila meeting",
+    "Meeting minutes",
     "Parents contacted",
     "Atfal classes held",
     "Average attendance",
@@ -59,10 +58,6 @@ export default function Majlis() {
     
 
     if (isLoaded) {
-      let indices = {
-        barIndices: [6,7,8,9,10,11,12,14],
-        pieIndices: [5,13,15,16,17]
-      }
     return (
         <>
           <Header
@@ -75,7 +70,6 @@ export default function Majlis() {
           <main className="mainContent">
             <Hero text={majlis + " 2022 - 23 Monthly Report Data"}/>
             <MajlisReports majlisList={majlisData} headerList={header}/>
-            <MajlisReportGraphs majlisList={majlisData} indices={indices} headerList={header}/>
           </main>
           <Footer />
         </>
@@ -109,33 +103,11 @@ export default function Majlis() {
 }
 
 function handleMajlisData(response, majlis) {
-  let majlisList = []
-  let monthsSubmitted = new Set()
-  response.map((entry) => {
-      if (entry[MAJLIS_INDEX] == majlis) {
-          majlisList.push(entry);
-          monthsSubmitted.add(entry[1])
-      }
-  })
-  // MONTHS.map((month) => {
-  //   if (!monthsSubmitted.has(month)) {
-  //     let missingMonth = new Array(18);
-  //     missingMonth.fill("");
-  //     missingMonth[0] = "Report not submitted"
-  //     missingMonth[1] = month;
-  //     majlisList.push(missingMonth)
-  //   }
-  // })
-  sortByMonth(majlisList)
-  return majlisList;
-}
-
-function sortByMonth(arr) {
-
-const months = ["November", "December", "January", "February", "March", "April", "May", "June",
-          "July", "August", "September", "October"];
-arr.sort(function(a, b){
-    return months.indexOf(a[1])
-         - months.indexOf(b[1]);
-});
+    let majlisList = []
+    response.map((entry) => {
+        if (entry[MAJLIS_INDEX] == majlis) {
+            majlisList.push(entry);
+        }
+    })
+    return majlisList;
 }

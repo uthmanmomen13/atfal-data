@@ -37,23 +37,18 @@ export default function MajlisReportGraphs({majlisList, headerList, indices}) {
     return dataForGraph;
   }
 
-  let barGraphs = indices["barIndices"].map((index) => {
+  let allBarGraphs = indices["barIndices"].map((index) => {
     let barGraphData = getDataForBarGraph(index);
     return (
-        <Col lg={6} className="my-3" style={{ minHeight: "200px" }}>
-          <BarGraph data={barGraphData} title={headerList[index]}/>
-        </Col> 
+      <section className="my-4" >
+        <Container>
+            <Col lg={6} style={{ minHeight: "200px" }}>
+              <BarGraph data={barGraphData} title={headerList[index]}/>
+            </Col>
+        </Container>
+      </section>
     )}
   );
-
-  let allBarGraphs = 
-  <section className="my-4" >
-      <Container>
-        <Row className="justify-content-center py-5 text-light">
-          {barGraphs}
-        </Row>
-      </Container>
-      </section>
 
   let pieGraphs = indices["pieIndices"].map((index) => {
     let pieGraphData = getDataForPieGraph(index);

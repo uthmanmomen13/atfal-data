@@ -38,6 +38,7 @@ export default function MajlisReports({majlisList, headerList}) {
           )};
 
     return (
+      // <div style={{width: "100%", overflow: "scroll"}}>
         <Col sm={3} style={{width: "100%", paddingLeft: "20px", paddingRight: "20px", overflow: "scroll" }}> 
           <table style={{width: "120%", marginTop: "30px"}}>
             {list}
