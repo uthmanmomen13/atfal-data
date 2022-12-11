@@ -1,12 +1,20 @@
 .tr > th, .tr > td {
     border-right: 2px solid grey;
     border-top: 2px solid grey;
+    border-left: 2px solid grey;
     padding: 4px;
+}
+
+.tr > th {
+    position: sticky;
+    background-color: rgb(204, 204, 204);
+    top: -1%
 }
 
 .tr {
     vertical-align: top;
     border-bottom: 2px solid grey;
+    border-right: 2px solid grey;
     font-size: 14px;
 }
 

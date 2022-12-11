@@ -9,7 +9,7 @@ import Hero from "../components/Hero.js";
 import Footer from "../components/Footer.js";
 import RegionalTable from "../components/RegionalTable.js";
 
-export default function Reports({ data }) {
+export default function Reports() {
 
     return (
         <>

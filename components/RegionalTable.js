@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header.js";
-import Nav from "../components/Nav.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styles from "../styles/RegionalTable.module.css"
-import Link from "next/link.js";
 
 export default function RegionalTable({data, route}) {
     let regionsTable = Object.keys(data).map((region) => {
     return (
         <Col md={3} className="my-3" key={region}>
           <h3 className={styles.h3}>
+            <a className={styles.h3} href={route + region.replace(" ", "_")}>
             {region}{" "}
+            </a>
           </h3>
           
-        {data[region].map((majlis) => 
+            {data[region].map((majlis) => 
             {
             let link = route + majlis.replace(" ", "_")
-            return (<h5 >
-                <a className={styles.a} href={link}>
-                {majlis}
-                </a> 
-            </h5>
+            return (
+                <h5 >
+                  <a className={styles.a} href={link}>
+                  {majlis}
+                  </a> 
+                </h5>
             )}
             )}
         </Col>

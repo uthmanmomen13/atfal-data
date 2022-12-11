@@ -3,11 +3,13 @@
   -webkit-text-decoration-line: underline #6DC19B 4px;
   text-decoration-line: underline ;
   text-decoration-color: #6DC19B ;
+  color: white;
 }
 
 .a {
     color: white;
     text-decoration:none;   
+    
 }
 
 .a:hover {
