@@ -6,7 +6,7 @@ function DropdownOption({callback}) {
 
     let months = MONTHS.map((month) => {  
       return (
-        <Dropdown.Item as="button" onClick={() => callback(month)}>{month}</Dropdown.Item>)
+        <Dropdown.Item key={month} as="button" onClick={() => callback(month)}>{month}</Dropdown.Item>)
     }
     )
   return (

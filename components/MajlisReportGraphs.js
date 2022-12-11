@@ -40,7 +40,7 @@ export default function MajlisReportGraphs({majlisList, headerList, indices}) {
   let barGraphs = indices["barIndices"].map((index) => {
     let barGraphData = getDataForBarGraph(index);
     return (
-        <Col lg={6} className="my-3" style={{ minHeight: "200px" }}>
+        <Col key={index}lg={6} className="my-3" style={{ minHeight: "200px" }}>
           <BarGraph data={barGraphData} title={headerList[index]}/>
         </Col> 
     )}
@@ -58,7 +58,7 @@ export default function MajlisReportGraphs({majlisList, headerList, indices}) {
   let pieGraphs = indices["pieIndices"].map((index) => {
     let pieGraphData = getDataForPieGraph(index);
       return (
-        <Col lg={4} className="my-3" style={{ minHeight: "200px" }}>
+        <Col key={index} lg={4} className="my-3" style={{ minHeight: "200px" }}>
             <PieGraph data={pieGraphData} title={headerList[index]}/>
           </Col>
         )

@@ -6,8 +6,10 @@ import Hero from "../../components/Hero";
 import Footer from "../../components/Footer.js";
 import { Container, Row, Col } from "react-bootstrap";
 const MAJLIS_INDEX = 3;
-import { MONTHS } from "../../components/const";
 import MajlisPage from "../../components/MajlisPage";
+import { MAJALIS21, REGIONS21, MONTHS } from "../../components/const";
+import regionJson from "../../components/21-22regions.json"
+
 
 const header = ["Timestamp",
     "Month",
@@ -38,18 +40,24 @@ export default function Majlis() {
     }
     
     useEffect(() => {
+      
       const requestOptions = {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         };
-        const url = "/api/allResponses";
-    
-        fetch(url, requestOptions)
-          .then((response) => response.json())
-          .then((response) => {
+      const url = "/api/allResponses";
+  
+      fetch(url, requestOptions)
+        .then((response) => response.json())
+        .then((response) => {
+          if (MAJALIS21.has(majlis)) {
             updateMajlisData(handleMajlisData(response, majlis)); // selects all data from this majlis
-            updateLoaded(true);
-          });
+          } else if (REGIONS21.has(majlis)) {
+            updateMajlisData(handleRegionData(response, majlis));
+          }
+          updateLoaded(true);
+        });
+        
     }, [isLoaded])
     
     if (isLoaded) {
@@ -67,8 +75,14 @@ export default function Majlis() {
           />
           <Nav />
           <main className="mainContent">
-            <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
-            <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
+            {MAJALIS21.has(majlis) || REGIONS21.has(majlis)?
+            <>
+              <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
+              <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
+            </>
+            :
+            <Hero text={"Majlis not found: " + majlis}/>
+            }
           </main>
           <Footer />
         </>
@@ -101,7 +115,7 @@ export default function Majlis() {
 }
 
 function handleMajlisData(response, majlis) {
-    let majlisList = []
+    let majlisList = [];
     let monthsSubmitted = new Set()
     response.map((entry) => {
         if (entry[MAJLIS_INDEX] == majlis) {
@@ -120,6 +134,20 @@ function handleMajlisData(response, majlis) {
     })
     sortByMonth(majlisList)
     return majlisList;
+}
+
+function handleRegionData(response, region) {
+  let regionData = [];
+  let majalisInRegion = new Set(regionJson.regions[region])
+  response.map((entry) => {
+    let majlis = entry[MAJLIS_INDEX]
+    if (majalisInRegion.has(majlis)) {
+      regionData.push(entry);
+    }
+  })
+  sortByMonth(regionData)
+
+  return regionData;
 }
 
 function sortByMonth(arr) {

@@ -18,10 +18,10 @@ export default function MajlisPage({majlisList, headerList, indices}) {
     })
     setMajlisData(filteredData);
   }, [filter, majlisList])
-  
+
   return (
       <>
-        <div style={{paddingLeft: "20px"}}>
+        <div style={{paddingLeft: "20px", marginBottom: "20px"}}>
           <DropdownOption callback={setFilter}/>
         </div>
         <MajlisReports majlisList={majlisData} headerList={headerList}/>
