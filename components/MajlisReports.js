@@ -37,8 +37,8 @@ export default function MajlisReports({majlisList, headerList}) {
           )};
 
     return (
-        <Col sm={3} style={{height:"400px", width: "100%", paddingLeft: "20px", paddingRight: "20px", overflow: "scroll" }}> 
-          <table style={{width: "120%", marginTop: "30px"}}>
+        <Col sm={3} style={{position:"relative", height:"360px", width: "97%", left: "20px", overflow: "scroll" }}> 
+          <table style={{width: "120%", marginTop: "10px"}}>
             {list}
           </table>
         </Col>
