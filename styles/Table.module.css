@@ -5,6 +5,12 @@
     padding: 4px;
 }
 
+.tr > th {
+    position: sticky;
+    background-color: rgb(204, 204, 204);
+    top: -1%
+}
+
 .tr {
     vertical-align: top;
     border-bottom: 2px solid grey;

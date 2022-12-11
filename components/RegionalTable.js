@@ -9,17 +9,20 @@ export default function RegionalTable({data, route}) {
     return (
         <Col md={3} className="my-3" key={region}>
           <h3 className={styles.h3}>
+            <a className={styles.h3} href={route + region.replace(" ", "_")}>
             {region}{" "}
+            </a>
           </h3>
           
             {data[region].map((majlis) => 
             {
             let link = route + majlis.replace(" ", "_")
-            return (<h5 >
-                <a className={styles.a} href={link}>
-                {majlis}
-                </a> 
-            </h5>
+            return (
+                <h5 >
+                  <a className={styles.a} href={link}>
+                  {majlis}
+                  </a> 
+                </h5>
             )}
             )}
         </Col>
