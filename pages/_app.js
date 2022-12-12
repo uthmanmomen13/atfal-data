@@ -3,19 +3,24 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { SSRProvider } from "react-bootstrap";
 import { Analytics } from '@vercel/analytics/react';
+import { SessionProvider } from "next-auth/react"
 
+function MyApp({
+   Component, pageProps: {session, ...pageProps},
+  }) {
 
-function MyApp({ Component, pageProps }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
   }, []);
   
   return (
     <>
-    <SSRProvider>
-    <Component {...pageProps} />
-    </SSRProvider>
-    <Analytics />
+      <SessionProvider session={session}>
+        <SSRProvider>
+        <Component {...pageProps} />
+        </SSRProvider>
+      </SessionProvider>
+      <Analytics />
     </>
   )
 }

@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default function Home() {
+ 
   return (
     <>
       <Header
@@ -15,9 +16,11 @@ export default function Home() {
       }}
     />
     <Nav />
+    
     <main className="mainContent">
       <Hero text={"Atfal Data"}/>
     </main>
+    
     <Footer />
     </>
   )
