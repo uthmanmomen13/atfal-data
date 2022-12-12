@@ -80,7 +80,7 @@ export default function Majlis() {
           {!session ? (
             <>
             <main className="mainContent">
-            <Hero text={"Please sign in to you atfalusa account."}/>
+            <Hero text={"Please sign in to your atfalusa account"}/>
             </main>
             </>
             ) : (
