@@ -10,7 +10,6 @@ import MajlisPage from "../../components/MajlisPage";
 import { MAJALIS21, REGIONS21, MONTHS } from "../../components/const";
 import regionJson from "../../components/21-22regions.json"
 
-
 const header = ["Timestamp",
     "Month",
     "Name",
