@@ -9,7 +9,7 @@ const MAJLIS_INDEX = 3;
 import MajlisPage from "../../components/MajlisPage";
 import { MAJALIS21, REGIONS21, MONTHS } from "../../components/const";
 import regionJson from "../../components/21-22regions.json"
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 
 const header = ["Timestamp",
@@ -80,11 +80,10 @@ export default function Majlis() {
           {!session ? (
             <>
             <main className="mainContent">
-            <Hero text={"Please sign in to your atfalusa account"}/>
+              <Hero text={"Please sign in to your atfalusa account"}/>
             </main>
             </>
-            ) : (
-                  
+            ) : (   
               <main className="mainContent">
                 {MAJALIS21.has(majlis) || REGIONS21.has(majlis)?
                 <>
@@ -95,7 +94,6 @@ export default function Majlis() {
                 <Hero text={"Majlis not found: " + majlis}/>
                 }
                </main>
-
             )
           }
           <Footer />
