@@ -9,6 +9,7 @@ export default NextAuth({
       clientId: web.client_id,
       clientSecret: web.client_secret
     }),
+    
     // ...add more providers here
   ],
 })

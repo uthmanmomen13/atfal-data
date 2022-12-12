@@ -9,6 +9,8 @@ const MAJLIS_INDEX = 3;
 import MajlisPage from "../../components/MajlisPage";
 import { MAJALIS21, REGIONS21, MONTHS } from "../../components/const";
 import regionJson from "../../components/21-22regions.json"
+import { useSession, signIn, signOut } from "next-auth/react";
+
 
 const header = ["Timestamp",
     "Month",
@@ -30,6 +32,8 @@ const header = ["Timestamp",
     "Waqf-e-Nau who attended class"]
 
 export default function Majlis() {
+  const { data: session } = useSession();
+
     const [majlisData, updateMajlisData] = useState([]);
     const [isLoaded, updateLoaded] = useState(false);
     const router = useRouter()
@@ -73,16 +77,27 @@ export default function Majlis() {
             }}
           />
           <Nav />
-          <main className="mainContent">
-            {MAJALIS21.has(majlis) || REGIONS21.has(majlis)?
+          {!session ? (
             <>
-              <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
-              <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
+            <main className="mainContent">
+            <Hero text={"Please sign in to you atfalusa account."}/>
+            </main>
             </>
-            :
-            <Hero text={"Majlis not found: " + majlis}/>
-            }
-          </main>
+            ) : (
+                  
+              <main className="mainContent">
+                {MAJALIS21.has(majlis) || REGIONS21.has(majlis)?
+                <>
+                  <Hero text={majlis + " 2021 - 22 Monthly Report Data"}/>
+                  <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
+                </>
+                :
+                <Hero text={"Majlis not found: " + majlis}/>
+                }
+               </main>
+
+            )
+          }
           <Footer />
         </>
       );
