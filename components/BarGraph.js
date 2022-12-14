@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import styles from "../styles/Table.module.css"
+
 import {
   Chart,
   CategoryScale,
@@ -13,6 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+// import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(
   CategoryScale,
@@ -21,6 +19,7 @@ Chart.register(
   Title,
   Tooltip,
   Legend,
+  // ChartDataLabels
 );
 
 
