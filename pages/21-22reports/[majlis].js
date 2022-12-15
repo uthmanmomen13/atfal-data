@@ -48,7 +48,7 @@ export default function Majlis() {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         };
-      const url = "/api/allResponses";
+      const url = "/api/responses21-22";
   
       fetch(url, requestOptions)
         .then((response) => response.json())
