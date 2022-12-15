@@ -1,3 +1,4 @@
+import { REPORTS21_22 } from "../../components/21-22reportData";
 export default async function handler(req, res) {
     
 
@@ -32,12 +33,14 @@ export default async function handler(req, res) {
     // spreadsheet id
     const spreadsheetId = "1uuoWvvSg42FKukytNcdeH4quE2T1zscGp6w4sSYlDz8";
   
-    //Read front the spreadsheet
-    const readData = await googleSheetsInstance.spreadsheets.values.get({
-      auth, //auth object
-      spreadsheetId, // spreadsheet id
-      range: "AllResponses!A:S", //range of cells to read from.
-    });
-    res.status(200).json(readData.data.values);
+    // Read from the spreadsheet
+    // const readData = await googleSheetsInstance.spreadsheets.values.get({
+    //   auth, //auth object
+    //   spreadsheetId, // spreadsheet id
+    //   range: "AllResponses!A:S", //range of cells to read from.
+    // });
+    // res.status(200).json(readData.data.values);
+    res.status(200).json(REPORTS21_22);
+
   }
   
