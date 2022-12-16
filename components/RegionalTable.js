@@ -32,6 +32,15 @@ export default function RegionalTable({data, route}) {
         <section className="bg-dark py-5">
          <Container>
             <Row className="justify-content-center py-5 text-light">
+              <Col md={3} className="my-3">
+                <h3 className={styles.h3}>
+                  <a className={styles.h3} href={route + "National"}>
+                     <span style={{fontSize: "50px"}}> National</span>
+                  </a>
+                </h3>
+              </Col>
+            </Row>
+            <Row className="justify-content-center py-5 text-light">
             {regionsTable}
             </Row>
          </Container>
