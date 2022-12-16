@@ -58,6 +58,8 @@ export default function Majlis() {
               } else if (REGIONS22.has(majlis)) {
                 updateMajlisData(handleRegionData(response, majlis));
               }
+              response.shift()
+              updateMajlisData(response);
               updateLoaded(true);
             });
 
@@ -85,7 +87,7 @@ export default function Majlis() {
             </>
             ) : (   
               <main className="mainContent">
-                {MAJALIS22.has(majlis) || REGIONS22.has(majlis)?
+                {MAJALIS22.has(majlis) || REGIONS22.has(majlis) || majlis == "National" ?
                 <>
                   <Hero text={majlis + " 2022 - 23 Monthly Report Data"}/>
                   <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
