@@ -41,6 +41,7 @@ export default function Majlis() {
     "Atfal encouraged to write for Al-Bashir",
     "Checked if Parents/Atfal are getting Digest",
     "Created content for Atfal social media",
+    "Tajneed data up to date",
     "Waqf-e-Nau who attended class"]
 
     useEffect(() => {
@@ -68,7 +69,7 @@ export default function Majlis() {
     if (isLoaded) {
       let indices = {
         barIndices: [6,7,8,9,10,11,12,14],
-        pieIndices: [5,13,15,16,17]
+        pieIndices: [5,13,15,16,17,18]
       }
     return (
         <>
