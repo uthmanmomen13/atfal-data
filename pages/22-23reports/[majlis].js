@@ -58,9 +58,10 @@ export default function Majlis() {
                 updateMajlisData(handleMajlisData(response, majlis)); // selects all data from this majlis
               } else if (REGIONS22.has(majlis)) {
                 updateMajlisData(handleRegionData(response, majlis));
+              } else {
+                response.shift()
+                updateMajlisData(response);
               }
-              response.shift()
-              updateMajlisData(response);
               updateLoaded(true);
             });
 
@@ -134,10 +135,10 @@ function handleMajlisData(response, majlis) {
   let majlisList = []
   let monthsSubmitted = new Set()
   response.map((entry) => {
-      if (entry[MAJLIS_INDEX] == majlis) {
-          majlisList.push(entry);
-          monthsSubmitted.add(entry[1])
-      }
+    if (entry[MAJLIS_INDEX] == majlis) {
+        majlisList.push(entry);
+        monthsSubmitted.add(entry[1])
+    }
   })
   // MONTHS.map((month) => {
   //   if (!monthsSubmitted.has(month)) {
