@@ -57,9 +57,11 @@ export default function Majlis() {
             updateMajlisData(handleMajlisData(response, majlis)); // selects all data from this majlis
           } else if (REGIONS21.has(majlis)) {
             updateMajlisData(handleRegionData(response, majlis));
+          } else {
+            response.shift()
+            updateMajlisData(response);
           }
-          response.shift()
-          updateMajlisData(response);
+          
           updateLoaded(true);
         });
         
