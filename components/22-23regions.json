@@ -41,7 +41,6 @@
             "Tulsa"
         ],
         "Midwest": ["Chicago",
-            "Indiana",
             "Milwaukee",
             "Minnesota",
             "Oshkosh",
@@ -50,6 +49,7 @@
             "Kansas City"
         ],
         "Great Lakes": ["Cleveland",
+            "Indiana",
             "Columbus",
             "Dayton",
             "Detroit",
