@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Navigation() {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
 
   return (
     <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
@@ -18,14 +18,14 @@ export default function Navigation() {
         </Navbar.Brand>
         
         <Nav>  
-          {!session ? (
+          {/* {!session ? (
             <>
               <Button  onClick={() => signIn()}>Sign In</Button>      
             </>
             ) : (
               <Button type="submit" onClick={() => signOut()}>Sign Out</Button>      
             )
-          }
+          } */}
           <NavDropdown title="Report Data">
             <NavDropdown.Item href="/22-23reports">
             [2022-23 Report Data]
