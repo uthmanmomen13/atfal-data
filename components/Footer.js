@@ -16,7 +16,7 @@ export default function Footer() {
               <img src="/maa-logomark.png" width={200} />
             </a>
             <div className="py-2 text-italic text-muted">
-              &copy; MKA USA 2022. All rights reserved
+              &copy; MKA USA 2023. All rights reserved
             </div>
           </Col>
           <Col sm="12" md="auto" className="order-first order-lg-last">

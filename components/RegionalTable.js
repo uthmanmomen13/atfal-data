@@ -18,7 +18,7 @@ export default function RegionalTable({data, route}) {
             {
             let link = route + majlis.replace(" ", "_")
             return (
-                <h5 >
+                <h5 key={Math.random()}>
                   <a className={styles.a} href={link}>
                   {majlis}
                   </a> 

@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Navigation() {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
   return (
     <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
@@ -17,15 +17,15 @@ export default function Navigation() {
           <Image src="/atfal-logo-title.png" width={100} height={90} alt="atfal logo"/>
         </Navbar.Brand>
         
-        <Nav>  
-          {/* {!session ? (
+        <Nav style={{position: "relative", right: '5%'}}>  
+          {!session ? (
             <>
               <Button  onClick={() => signIn()}>Sign In</Button>      
             </>
             ) : (
               <Button type="submit" onClick={() => signOut()}>Sign Out</Button>      
             )
-          } */}
+          }
           <NavDropdown title="Report Data">
             <NavDropdown.Item href="/22-23reports">
             [2022-23 Report Data]
@@ -34,14 +34,14 @@ export default function Navigation() {
             [2021-22 Report Data]
             </NavDropdown.Item>
           </NavDropdown>  
-          {/* <NavDropdown title="Rankings">
+          <NavDropdown title="Alm-e-Inami">
             <NavDropdown.Item href="/">
-            [2022-23 Rankings]
+            [2022-23 mid-year rankings]
             </NavDropdown.Item>
-            <NavDropdown.Item href="/21-22ranks">
+            {/* <NavDropdown.Item href="/">
             [2021-22 rankings]
-            </NavDropdown.Item>
-          </NavDropdown>                 */}
+            </NavDropdown.Item> */}
+          </NavDropdown>                
         </Nav>
       </Container>
     </Navbar>
