@@ -7,14 +7,14 @@ import Footer from "../../components/Footer.js";
 import { Container, Row, Col } from "react-bootstrap";
 import { MAJALIS22, REGIONS22, MONTHS } from "../../components/const";
 import regionJson from "../../components/22-23regions.json"
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 
 const MAJLIS_INDEX = 3;
 import MajlisPage from "../../components/MajlisPage";
 
 export default function Majlis() {
-    // const { data: session } = useSession();
+    const { data: session } = useSession();
     const [majlisData, updateMajlisData] = useState([]);
     const [isLoaded, updateLoaded] = useState(false);
     const router = useRouter()
@@ -81,26 +81,27 @@ export default function Majlis() {
             }}
           />
           <Nav />
-          {/* {!session ? (
-            <>
-            <main className="mainContent">
-              <Hero text={"Please sign in to your atfalusa account"}/>
-            </main>
-            </>
-            ) : (   
-              
-            )
-          } */}
           <main className="mainContent">
-                {MAJALIS22.has(majlis) || REGIONS22.has(majlis) || majlis == "National" ?
-                <>
-                  <Hero text={majlis + " 2022 - 23 Monthly Report Data"}/>
-                  <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
-                </>
-                :
-                <Hero text={"Majlis not found: " + majlis}/>
-                }
-               </main>
+
+          {!session ? (
+            <>
+              <Hero text={"Please sign in to your atfalusa account"}/>
+            </>
+            ) : (  
+              <>
+              {MAJALIS22.has(majlis) || REGIONS22.has(majlis) || majlis == "National" ?
+              <>
+                <Hero text={majlis + " 2022 - 23 Monthly Report Data"}/>
+                <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
+              </>
+              :
+              <Hero text={"Majlis not found: " + majlis}/>
+              }
+              </> 
+            )
+          }
+          </main>
+            
           <Footer />
         </>
       );

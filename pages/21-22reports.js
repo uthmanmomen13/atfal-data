@@ -8,7 +8,7 @@ import RegionalTable from "../components/RegionalTable.js";
 import { useSession } from "next-auth/react";
 
 export default function Reports() {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
     return (
         <>
@@ -20,17 +20,17 @@ export default function Reports() {
           />
           <Nav />
           <main className="mainContent">
-          {/* {!session ? (
+          {!session ? (
               <>
               <Hero text={"Please sign in to your atfalusa account"}/>
               </>
               ) : (
                 <>
-            
-            </>
-              )} */}
               <Hero text={"2021 - 22 Monthly Report Data"}/>
-            <RegionalTable data={regionJson.regions} route={"/21-22reports/"}/>
+              <RegionalTable data={regionJson.regions} route={"/21-22reports/"}/>
+              </>
+              )}
+             
           </main>
           <Footer />
         </>

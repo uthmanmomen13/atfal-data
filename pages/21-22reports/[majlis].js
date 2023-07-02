@@ -9,7 +9,7 @@ const MAJLIS_INDEX = 3;
 import MajlisPage from "../../components/MajlisPage";
 import { MAJALIS21, REGIONS21, MONTHS } from "../../components/const";
 import regionJson from "../../components/21-22regions.json"
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 
 const header = ["Timestamp",
@@ -32,7 +32,7 @@ const header = ["Timestamp",
     "Waqf-e-Nau who attended class"]
 
 export default function Majlis() {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
     const [majlisData, updateMajlisData] = useState([]);
     const [isLoaded, updateLoaded] = useState(false);
