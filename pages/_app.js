@@ -15,11 +15,11 @@ function MyApp({
   
   return (
     <>
-      {/* <SessionProvider session={session}> */}
+      <SessionProvider session={session}>
         <SSRProvider>
         <Component {...pageProps} />
         </SSRProvider>
-      {/* </SessionProvider> */}
+      </SessionProvider>
       <Analytics />
     </>
   )
