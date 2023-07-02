@@ -26,12 +26,12 @@ export default function Reports() {
               </>
               ) : (
                 <>
-              
+              <Hero text={"2022 - 23 Monthly Report Data"}/>
+              <RegionalTable data={regionJson22.regions} route={"/22-23reports/"} />
               </>
               )
             }
-            <Hero text={"2022 - 23 Monthly Report Data"}/>
-              <RegionalTable data={regionJson22.regions} route={"/22-23reports/"} />
+            
           </main>
           <Footer />
         </>
