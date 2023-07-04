@@ -22,7 +22,7 @@ export default function Reports() {
           <main className="mainContent">
             {!session ? (
               <>
-              <Hero text={"Please sign in to your atfalusa account"}/>
+              <Hero text={"Please sign in to your atfalusa/mkausa account"}/>
               </>
               ) : (
                 <>

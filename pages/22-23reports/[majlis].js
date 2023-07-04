@@ -89,7 +89,7 @@ export default function Majlis() {
 
           {!session ? (
             <>
-              <Hero text={"Please sign in to your atfalusa account"}/>
+              <Hero text={"Please sign in to your atfalusa/mkausa account"}/>
             </>
             ) : (  
               <>
