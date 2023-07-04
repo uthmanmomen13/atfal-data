@@ -23,17 +23,18 @@ export default function RankOverview({ data }) {
                 break;
         }
     });
+    
     large.sort(function(a,b) {return b.all - a.all})
     medium.sort(function(a,b) {return b.all - a.all})
     small.sort(function(a,b) {return b.all - a.all})
-
     function getRows(data_) {
+        
         let allRows = data_.map((entry, i) => 
         {
             return ( 
         <tr key={`${entry.region}_${entry.name}_Row`} style={{ backgroundColor: i == 0? "gold": i == 1? "silver" : i == 2? "#CD7F32" : "white"}}>
           <td>{entry.rank}</td>
-          <td>[coming soon]</td>
+          <td>{entry.name}</td>
           <td >{entry.q1}</td>
           <td >{entry.q2}</td>
           <td >{entry.q3}</td>

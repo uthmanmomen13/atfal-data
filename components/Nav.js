@@ -34,14 +34,14 @@ export default function Navigation() {
             [2021-22 Report Data]
             </NavDropdown.Item>
           </NavDropdown>  
-          <NavDropdown title="Alm-e-Inami">
-            <NavDropdown.Item href="/">
+          {/* <NavDropdown title="Alm-e-Inami">
+            <NavDropdown.Item href="/22-23rankings/22-23midyear">
             [2022-23 mid-year rankings]
             </NavDropdown.Item>
-            {/* <NavDropdown.Item href="/">
+            <NavDropdown.Item href="/">
             [2021-22 rankings]
-            </NavDropdown.Item> */}
-          </NavDropdown>                
+            </NavDropdown.Item>
+          </NavDropdown>                 */}
         </Nav>
       </Container>
     </Navbar>

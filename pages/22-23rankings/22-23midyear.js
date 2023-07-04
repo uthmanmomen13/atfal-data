@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header.js";
-import Nav from "../components/Nav.js";
+import Header from "../../components/Header.js";
+import Nav from "../../components/Nav.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import CollapsibleTable from "../../components/MuiTable.js";
+import MuiDataGrid from "../../components/MuiDataGrid.js";
 import {
     TYPE_INDEX,
     NAME_INDEX,
@@ -17,29 +18,27 @@ import {
     MAJLIS_SIZE_INDEX,
     RANK_INDEX,
     MAAL_INDEX
-} from "../components/const.js";
+} from "../../components/const.js";
 
-import Hero from "../components/Hero.js";
-import RankOverview from "../components/RankOverview.js";
-
-
-import Footer from "../components/Footer.js";
+import Hero from "../../components/Hero.js";
+import Footer from "../../components/Footer.js";
 
 export default function Stats() {
-  const [formData, updateFormData] = useState([]);
+  const [rankData, updateRankData] = useState([]);
   const [isLoaded, updateLoaded] = useState(false);
+
 
   useEffect(() => {
     const requestOptions = {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     };
-    const url = "/api/almeinami21-22";
+    const url = "/api/almeinamimid22-23";
 
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((response) => {
-        updateFormData(handleFormData(response)); // This finishes quickly because response is not very big
+        // updateRankData(handleFormData(response)); 
         updateLoaded(true);
       });
     
@@ -52,13 +51,16 @@ export default function Stats() {
         <Header
           data={{
             title: "Alm-e-Inami Rankings",
-            description: "Atfal Alm-e-Inami Rankings 2021-22",
+            description: "Atfal Alm-e-Inami Mid-year Rankings 2022-23",
           }}
         />
         <Nav />
         <main className="mainContent">
-          <Hero text={"2021 - 22 Alm-e-Inami Rankings"}/>
-          <RankOverview data={formData}/>
+          <Hero text={"2022 - 23 Alm-e-Inami Mid year Rankings"}/>
+          <div >
+            {/* <CollapsibleTable/> */}
+            <MuiDataGrid/>
+          </div>
         </main>
         <Footer />
       </>
@@ -66,15 +68,15 @@ export default function Stats() {
   } else {
     return (
       <>
-        <Header
+         <Header
           data={{
-            title: "Alm-e-Inami",
-            description: "Atfal Alm-e-Inami Rankings 2021-22",
+            title: "Alm-e-Inami Rankings",
+            description: "Atfal Alm-e-Inami Mid-year Rankings 2022-23",
           }}
         />
         <Nav />
         <main className="mainContent">
-        <Hero text={"2021 - 22 Alm-e-Inami Rankings"}/>
+        <Hero text={"2022 - 23 Alm-e-Inami Mid year Rankings"}/>
           
           <section className="bg-dark py-5">
             <Container>
@@ -90,7 +92,6 @@ export default function Stats() {
   }
 }
 function handleFormData(response) {
-  //{totals: {all: "123", khuddam: "12", atfal: "5"}, regions: [], majalis: []}
   let rtnObject = { regions: [], majalis: [] };
 
   response.map((row) => {

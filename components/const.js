@@ -7,9 +7,9 @@ export const
   Q3_INDEX = 5,
   Q4_INDEX = 6,
   MAAL_INDEX = 7,
-  TOTAL_INDEX = 9,
-  MAJLIS_SIZE_INDEX = 10,
-  RANK_INDEX = 11;
+  TOTAL_INDEX = 10,
+  MAJLIS_SIZE_INDEX = 11,
+  RANK_INDEX = 12;
 
 export const MONTHS = ["November", "December", "January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October"];
