@@ -12,6 +12,7 @@ import { useSession } from "next-auth/react";
 
 const MAJLIS_INDEX = 3;
 import MajlisPage from "../../components/MajlisPage";
+import MuiDataGrid from "../../components/MuiDataGrid";
 
 export default function Majlis() {
     const { data: session } = useSession();
@@ -23,7 +24,8 @@ export default function Majlis() {
         majlis = majlis.replace("_", " ");
     }
 
-    const header = ["Timestamp",
+    const header = [
+    "Timestamp",
     "Month",
     "Name",
     "Majlis",
@@ -42,7 +44,8 @@ export default function Majlis() {
     "Checked if Parents/Atfal are getting Digest",
     "Created content for Atfal social media",
     "Tajneed data up to date",
-    "Waqf-e-Nau who attended class"]
+    "Waqf-e-Nau who attended class"
+  ]
 
     useEffect(() => {
         const requestOptions = {
@@ -68,6 +71,7 @@ export default function Majlis() {
     }, [isLoaded])
 
     if (isLoaded) {
+      // console.log(majlisData)
       let indices = {
         barIndices: [6,7,8,9,10,11,12,14],
         pieIndices: [5,13,15,16,17,18]
@@ -92,6 +96,8 @@ export default function Majlis() {
               {MAJALIS22.has(majlis) || REGIONS22.has(majlis) || majlis == "National" ?
               <>
                 <Hero text={majlis + " 2022 - 23 Monthly Report Data"}/>
+                <MuiDataGrid heightProp={740} rowData={majlisData}/>
+
                 <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
               </>
               :

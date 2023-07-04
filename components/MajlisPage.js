@@ -21,10 +21,10 @@ export default function MajlisPage({majlisList, headerList, indices}) {
 
   return (
       <>
-        <div style={{paddingLeft: "20px", marginBottom: "20px"}}>
+        {/* <div style={{paddingLeft: "20px", marginBottom: "20px"}}>
           <DropdownOption callback={setFilter}/>
-        </div>
-        <MajlisReports majlisList={majlisData} headerList={headerList}/>
+        </div> */}
+        {/* <MajlisReports majlisList={majlisData} headerList={headerList}/> */}
         <MajlisReportGraphs majlisList={majlisData} indices={indices} headerList={headerList}/>
       </>
   )
