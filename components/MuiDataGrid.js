@@ -66,12 +66,10 @@ export default function MuiDataGrid({rowData, heightProp}) {
               "& .MuiDataGrid-columnHeader": {
                 // Forced to use important since overriding inline styles
                 height: "unset !important",
-                color: 'white',
               },
               "& .MuiDataGrid-columnHeaders": {
                 // Forced to use important since overriding inline styles
                 maxHeight: "168px !important",
-                backgroundColor: '#272c30' 
 
               }
           }}
