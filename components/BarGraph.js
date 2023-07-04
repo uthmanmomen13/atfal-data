@@ -71,7 +71,7 @@ export default function BarGraph({data, title}) {
     datasets: [{
       label: title,
       data: data,
-      backgroundColor: 'rgba(255, 99, 132)',
+      backgroundColor: 'rgba(40, 105, 224)',
     }]
   }
     

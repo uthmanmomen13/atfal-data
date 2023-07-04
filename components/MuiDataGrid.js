@@ -78,7 +78,7 @@ export default function MuiDataGrid({rowData, heightProp}) {
                 columns={columns}
                 rows={rows_}
                 slots={{toolbar: GridToolbar}}
-                columnHeaderHeight={100} 
+                // columnHeaderHeight={80} 
                 getRowId={(row) => row.Timestamp}  
                 showCellVerticalBorder
                 showColumnVerticalBorder

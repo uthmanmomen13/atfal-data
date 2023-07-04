@@ -39,12 +39,12 @@ export default function PieGraph({data, title}) {
         label: title,
         data: data,
         backgroundColor: [
-          'rgba(75, 192, 192, .5)',
-          'rgba(255, 99, 132, .5)',
+          'rgba(0, 148, 42, .9)',
+          'rgba(199, 4, 4, .9)',
         ],
         borderColor: [
-          'rgba(75, 192, 192, 1)',
-          'rgba(255, 99, 132, 1)',
+          'rgba(0, 148, 42, 1)',
+          'rgba(199, 4, 4, 1)',
         ],
         borderWidth: 1,
       },

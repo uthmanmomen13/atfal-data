@@ -96,7 +96,7 @@ export default function Majlis() {
               {MAJALIS22.has(majlis) || REGIONS22.has(majlis) || majlis == "National" ?
               <>
                 <Hero text={majlis + " 2022 - 23 Monthly Report Data"}/>
-                <MuiDataGrid heightProp={740} rowData={majlisData}/>
+                <MuiDataGrid heightProp={600} rowData={majlisData}/>
 
                 <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
               </>
