@@ -63,7 +63,7 @@ export default function Majlis() {
                 updateMajlisData(handleRegionData(response, majlis));
               } else {
                 response.shift()
-                updateMajlisData(response);
+                updateMajlisData(handleNationalData(response));
               }
               updateLoaded(true);
             });
@@ -148,15 +148,6 @@ function handleMajlisData(response, majlis) {
         monthsSubmitted.add(entry[1])
     }
   })
-  // MONTHS.map((month) => {
-  //   if (!monthsSubmitted.has(month)) {
-  //     let missingMonth = new Array(18);
-  //     missingMonth.fill("");
-  //     missingMonth[0] = "Report not submitted"
-  //     missingMonth[1] = month;
-  //     majlisList.push(missingMonth)
-  //   }
-  // })
   sortByMonth(majlisList)
   return majlisList;
 }
@@ -167,12 +158,22 @@ function handleRegionData(response, region) {
   response.map((entry) => {
     let majlis = entry[MAJLIS_INDEX]
     if (majalisInRegion.has(majlis)) {
+       entry.unshift(Math.random())
       regionData.push(entry);
     }
   })
   sortByMonth(regionData)
 
   return regionData;
+}
+
+function handleNationalData(response) {
+  let nationalData = []
+  response.map((entry) => {
+    entry.unshift(Math.random())
+    nationalData.push(entry)
+  })
+  return nationalData
 }
 
 function sortByMonth(arr) {
