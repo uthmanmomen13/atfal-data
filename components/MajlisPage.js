@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 const MONTH_INDEX = 1;
-import MajlisReports from "./MajlisReports";
 import MajlisReportGraphs from "./MajlisReportGraphs";
-import DropdownOption from "./DropdownOption";
 
 export default function MajlisPage({majlisList, headerList, indices}) {
 

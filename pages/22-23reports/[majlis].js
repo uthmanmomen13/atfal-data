@@ -24,7 +24,7 @@ export default function Majlis() {
         majlis = majlis.replace("_", " ");
     }
 
-    const header = [
+    const header = [ "id",
     "Timestamp",
     "Month",
     "Name",
@@ -71,10 +71,9 @@ export default function Majlis() {
     }, [isLoaded])
 
     if (isLoaded) {
-      // console.log(majlisData)
       let indices = {
-        barIndices: [6,7,8,9,10,11,12,14],
-        pieIndices: [5,13,15,16,17,18]
+        barIndices: [7,8,9,10,11,12,13,15],
+        pieIndices: [6,14,16,17,18,19]
       }
     return (
         <>
@@ -89,14 +88,14 @@ export default function Majlis() {
 
           {!session ? (
             <>
-              <Hero text={"Please sign in to your atfalusa account"}/>
+              <Hero text={"Please sign in to your atfalusa/mkausa account"}/>
             </>
             ) : (  
               <>
               {MAJALIS22.has(majlis) || REGIONS22.has(majlis) || majlis == "National" ?
               <>
                 <Hero text={majlis + " 2022 - 23 Monthly Report Data"}/>
-                <MuiDataGrid heightProp={740} rowData={majlisData}/>
+                <MuiDataGrid heightProp={600} rowData={majlisData}/>
 
                 <MajlisPage majlisList={majlisData} indices={indices} headerList={header}/>
               </>
@@ -144,6 +143,7 @@ function handleMajlisData(response, majlis) {
   let monthsSubmitted = new Set()
   response.map((entry) => {
     if (entry[MAJLIS_INDEX] == majlis) {
+      entry.unshift(Math.random())
         majlisList.push(entry);
         monthsSubmitted.add(entry[1])
     }

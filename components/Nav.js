@@ -14,7 +14,7 @@ export default function Navigation() {
     <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/">
-          <Image src="/atfal-logo-title.png" width={100} height={90} alt="atfal logo"/>
+          <Image src="/atfal-logo-title.png" width={95} height={85} alt="atfal logo"/>
         </Navbar.Brand>
         
         <Nav style={{position: "relative", right: '5%'}}>  
