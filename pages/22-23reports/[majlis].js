@@ -144,6 +144,7 @@ function handleMajlisData(response, majlis) {
   let monthsSubmitted = new Set()
   response.map((entry) => {
     if (entry[MAJLIS_INDEX] == majlis) {
+      entry.unshift(Math.random())
         majlisList.push(entry);
         monthsSubmitted.add(entry[1])
     }

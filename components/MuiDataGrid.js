@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { Box } from '@mui/material';
 
-const header = [
+const header = ["id",
     "Timestamp",
     "Month",
     "Name",
@@ -25,6 +25,7 @@ const header = [
     "Waqf-e-Nau who attended class"
   ]
 const columns = [
+    { field: "id", width: 160, },
     { field: "Timestamp", width: 160},
     { field: "Month", width: 110},
     { field: "Name", width: 140},
@@ -78,10 +79,18 @@ export default function MuiDataGrid({rowData, heightProp}) {
                 columns={columns}
                 rows={rows_}
                 slots={{toolbar: GridToolbar}}
-                // columnHeaderHeight={80} 
-                getRowId={(row) => row.Timestamp}  
                 showCellVerticalBorder
                 showColumnVerticalBorder
+                initialState={{
+                    columns: {
+                      columnVisibilityModel: {
+                        // Hide columns status and traderName, the other columns will remain visible
+                        id: false,
+                      },
+                    }
+                    }
+                }
+                    
             />
         </Box>
 
