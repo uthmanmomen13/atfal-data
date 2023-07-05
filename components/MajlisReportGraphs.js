@@ -4,7 +4,7 @@ import PieGraph from "./PieGraph";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { MONTHS } from "./const";
-const MONTH_INDEX = 1;
+const MONTH_INDEX = 2;
 
 
 export default function MajlisReportGraphs({majlisList, headerList, indices}) {

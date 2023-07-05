@@ -24,7 +24,7 @@ export default function Majlis() {
         majlis = majlis.replace("_", " ");
     }
 
-    const header = [
+    const header = [ "id",
     "Timestamp",
     "Month",
     "Name",
@@ -71,10 +71,9 @@ export default function Majlis() {
     }, [isLoaded])
 
     if (isLoaded) {
-      // console.log(majlisData)
       let indices = {
-        barIndices: [6,7,8,9,10,11,12,14],
-        pieIndices: [5,13,15,16,17,18]
+        barIndices: [7,8,9,10,11,12,13,15],
+        pieIndices: [6,14,16,17,18,19]
       }
     return (
         <>
